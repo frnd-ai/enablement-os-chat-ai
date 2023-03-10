@@ -18,7 +18,7 @@ export declare class EnablementOsChatAiComponent implements OnInit {
     selectConversation(conversation: any): void;
     clearConversation(): void;
     submitQuery(): void;
-    fetchResponse(conversation: any): Promise<void>;
+    fetchResponse(conversation: any): void;
     copyText(text: any): void;
     copyHtml(content: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<EnablementOsChatAiComponent, never>;
