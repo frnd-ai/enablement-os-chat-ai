@@ -16,7 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule
   ],
   exports: [
-    EnablementOsChatAiComponent
+    EnablementOsChatAiComponent,
   ]
 })
 export class EnablementOsChatAiModule { }

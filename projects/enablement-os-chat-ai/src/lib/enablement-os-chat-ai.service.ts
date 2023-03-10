@@ -1,10 +1,14 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
+import {EnablementOsChatAiComponent} from './enablement-os-chat-ai.component';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnablementOsChatAiService {
   darkMode = false;
+
+  onResponse = new EventEmitter<any>();
 
   lightThemeOptions = {
     sidebarBG: '#6b6a6a08',
@@ -45,7 +49,7 @@ export class EnablementOsChatAiService {
   sidebarClearChatHover = false;
   sidebarThemeHover = false;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.darkMode = this.fetchSavedDarkMode();
     this.setDarkMode(this.darkMode);
   }
@@ -84,5 +88,16 @@ export class EnablementOsChatAiService {
   fetchSavedDarkMode(): boolean {
     const themeModeString = localStorage.getItem('enablement-os-chat-ai-dark-mode');
     return !!(themeModeString?.length && themeModeString === 'true');
+  }
+
+  public fetchResponse(conversation: any, apiToken: any, betaMode: boolean) {
+    const requestOptions: any = {headers: {}};
+    requestOptions.headers.Authorization = 'Bearer ' + apiToken;
+    const url = betaMode ? 'https://classified.frnd.ai/api/v1/brain/chat/' : 'https://service.frnd.ai/api/v1/brain/chat/';
+    const body = {prompt: conversation.query};
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100)
+    return this.http.post(url, body, requestOptions);
   }
 }
