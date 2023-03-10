@@ -1,0 +1,144 @@
+.chat-ui-container {
+  width: 100%;
+}
+
+.chat-ui-sidebar {
+  width: 260px;
+  position: fixed;
+  top: 0;
+  left:0;
+  bottom: 0;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.chat-ui-sidebar-header {
+  flex: 0 1 auto;
+  padding: 10px;
+}
+
+.chat-ui-sidebar-add-new {
+  width: 100%;
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.chat-ui-sidebar-add-new-icon-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 10px 0 10px 0;
+  align-items: center;
+}
+
+.chat-ui-sidebar-search-container {
+  margin-top: 10px;
+  width: 95%;
+}
+
+.chat-ui-sidebar-search-input-container {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.chat-ui-sidebar-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 5px;
+}
+
+.chat-ui-pinned-chat-items-container {
+  flex: 1 1 auto;
+  padding: 10px;
+}
+
+.pinned-chat-item {
+  width: 95%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pinned-chat-item-icon-container {
+  flex: 0 1 10%;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.pinned-chat-item-text-container {
+  flex: 1 1 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.chat-ui-sidebar-footer {
+  flex: 0 1 80px;
+  padding: 10px;
+  border-top: 1px solid;
+}
+
+.chat-ui-sidebar-footer-item {
+  width: 95%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-ui-sidebar-footer-item-icon-container {
+  flex: 0 1 10%;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.chat-ui-sidebar-footer-item-text-container {
+  flex: 1 1 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.chat-ui-content {
+  padding: 10px;
+  height: 100vh;
+}
+
+.blinking-cursor {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

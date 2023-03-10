@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "enablement-os-chat-ai": {
+      "projectType": "library",
+      "root": "projects/enablement-os-chat-ai",
+      "sourceRoot": "projects/enablement-os-chat-ai/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/enablement-os-chat-ai/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/enablement-os-chat-ai/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/enablement-os-chat-ai/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/enablement-os-chat-ai/src/test.ts",
+            "tsConfig": "projects/enablement-os-chat-ai/tsconfig.spec.json",
+            "karmaConfig": "projects/enablement-os-chat-ai/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "enablement-os-chat-ai-web"

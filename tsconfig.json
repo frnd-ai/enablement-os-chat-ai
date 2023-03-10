@@ -5,6 +5,12 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "enablement-os-chat-ai": [
+        "dist/enablement-os-chat-ai/enablement-os-chat-ai",
+        "dist/enablement-os-chat-ai"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
