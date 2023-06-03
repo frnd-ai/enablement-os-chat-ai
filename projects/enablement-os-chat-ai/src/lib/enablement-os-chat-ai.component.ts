@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {EnablementOsChatAiService} from './enablement-os-chat-ai.service';
 import {HttpClient} from '@angular/common/http';
 

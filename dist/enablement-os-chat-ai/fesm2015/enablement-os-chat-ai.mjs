@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { Injectable, Component, Input, NgModule } from '@angular/core';
+import { EventEmitter, Injectable, Component, Input, NgModule } from '@angular/core';
 import * as i1 from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import * as i3 from '@angular/common';
@@ -12,6 +12,7 @@ class EnablementOsChatAiService {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         this.http = http;
         this.darkMode = false;
+        this.onResponse = new EventEmitter();
         this.lightThemeOptions = {
             sidebarBG: '#6b6a6a08',
             contentBG: '#FFFFFF',
@@ -240,7 +241,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.3", ngImpor
                         HttpClientModule
                     ],
                     exports: [
-                        EnablementOsChatAiComponent
+                        EnablementOsChatAiComponent,
                     ]
                 }]
         }] });

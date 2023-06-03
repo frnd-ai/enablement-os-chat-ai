@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
+import {EnablementOsChatAiComponent} from './enablement-os-chat-ai.component';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -6,6 +7,8 @@ import {HttpClient} from '@angular/common/http';
 })
 export class EnablementOsChatAiService {
   darkMode = false;
+
+  onResponse = new EventEmitter<any>();
 
   lightThemeOptions = {
     sidebarBG: '#6b6a6a08',

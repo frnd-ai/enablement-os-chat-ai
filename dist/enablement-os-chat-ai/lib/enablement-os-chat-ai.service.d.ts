@@ -1,8 +1,10 @@
+import { EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as i0 from "@angular/core";
 export declare class EnablementOsChatAiService {
     private http;
     darkMode: boolean;
+    onResponse: EventEmitter<any>;
     lightThemeOptions: {
         sidebarBG: string;
         contentBG: string;
