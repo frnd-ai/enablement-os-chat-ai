@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:chat-ai": "ng build enablement-os-chat-ai",
+    "publish:chat-ai": "npm publish dist/enablement-os-chat-ai/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

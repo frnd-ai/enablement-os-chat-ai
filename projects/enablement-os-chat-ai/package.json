@@ -1,6 +1,6 @@
 {
   "name": "enablement-os-chat-ai",
-  "version": "1.0.4-BETA",
+  "version": "1.0.7-BETA",
   "peerDependencies": {
     "@angular/common": "^13.0.0",
     "@angular/core": "^13.0.0"

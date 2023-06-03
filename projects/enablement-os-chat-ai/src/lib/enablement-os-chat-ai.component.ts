@@ -50,7 +50,10 @@ export class EnablementOsChatAiComponent implements OnInit {
     this.selectedConversation = undefined;
   }
 
-  submitQuery() {
+  submitQuery(query?: any) {
+    if (query) {
+      this.query = query;
+    }
     if (this.query?.length && !this.responseLoading) {
       if (!this.singleMessaging) {
         if (this.selectedConversation) {
@@ -76,32 +79,25 @@ export class EnablementOsChatAiComponent implements OnInit {
     }
   }
 
-  async fetchResponse(conversation: any) {
-    this.responseLoading = true;
+  fetchResponse(conversation: any) {
     if (this.apiToken?.length) {
-      const requestOptions: any = {headers: {}};
-      requestOptions.headers.Authorization = 'Bearer ' + this.apiToken;
-      const url = this.betaMode ? 'https://classified.frnd.ai/api/v1/brain/chat/' : 'https://service.frnd.ai/api/v1/brain/chat/';
-      const body = {prompt: conversation.query};
-      setTimeout(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-      }, 100)
-      this.http.post(url, body, requestOptions).subscribe({
-        next: (data: any) => {
-          const text = data.text;
-          const response = text.split('\n').join('<br />');
-          conversation.loading = false;
-          conversation.response = response;
-          this.responseLoading = false;
-          window.scrollTo(0, document.body.scrollHeight);
-        },
-        error: (error: any) => {
-          conversation.loading = false;
-          conversation.responseFetchingFailed = true;
-          this.responseLoading = false;
-          window.scrollTo(0, document.body.scrollHeight);
-        }
-      });
+      this.enablementOsChatAiService.fetchResponse(conversation, this.apiToken, this.betaMode)
+        .subscribe({
+          next: (data: any) => {
+            const text = data.text;
+            const response = text.split('\n').join('<br />');
+            conversation.loading = false;
+            conversation.response = response;
+            this.responseLoading = false;
+            window.scrollTo(0, document.body.scrollHeight);
+          },
+          error: (error: any) => {
+            conversation.loading = false;
+            conversation.responseFetchingFailed = true;
+            this.responseLoading = false;
+            window.scrollTo(0, document.body.scrollHeight);
+          }
+        });
     }
   }
 
